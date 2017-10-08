@@ -44,24 +44,16 @@ std::map<std::string, std::string> getMapIds(std::map<std::string, std::string> 
 		{
 			//get all the characters until ':'
 			getline(myfile, mystring, ':');
-			std::cout << "name: " << mystring << " " << std::endl;
-			//add then into the map as 'name,name'
-			//mapped3.insert({ mystring ,mystring });
 
 			//get the new char until ':'
 			getline(myfile, idNum, ':');
-			std::cout << "ID: " << idNum << " " << std::endl;
 			// add as 'name, idnumber'
 			mapIds.insert(std::pair<std::string,std::string>( mystring ,idNum ));
 
-
 			getline(myfile, desc, ':');
-			std::cout << "desc: " << desc << " ";
-			//mapped3.insert({ mystring ,desc });
 
 			//get the exits as a group
 			getline(myfile, exits);
-			std::cout << "exits: " << exits << " " << std::endl;
 			// get the group characters
 			std::stringstream ss(exits);
 
@@ -80,9 +72,6 @@ std::map<std::string, std::string> getMapIds(std::map<std::string, std::string> 
 
 	};
 	myfile.close();
-
-	std::cout << " \n -----------Map  ID Listings End--------------\n";
-
 	return mapIds;
 };
 
@@ -94,8 +83,6 @@ std::unordered_multimap<std::string, std::string> getMapElements(std::unordered_
 	int i = 0;
 	std::string line, desc, exits, idNum;
 
-	std::cout << "\n -----------Map Listings-------------- \n";
-
 	//open the text file
 	myfile.open("adventure4.txt");
 	//creates a complete record
@@ -105,24 +92,19 @@ std::unordered_multimap<std::string, std::string> getMapElements(std::unordered_
 		{
 			//get all the characters until ':'
 			getline(myfile, mystring, ':');
-			std::cout << "name: " << mystring << " " << std::endl;
 			//add then into the map as 'name,name'
 			mapped2.insert({ mystring ,mystring });
 
 			//get the new char until ':'
 			getline(myfile, idNum, ':');
-			std::cout << "ID: " << idNum << " " << std::endl;
 			// add as 'name, idnumber'
 			mapped2.insert({ mystring ,idNum });
-			
 
 			getline(myfile, desc, ':');
-			std::cout << "desc: " << desc << " ";
 			mapped2.insert({ mystring ,desc });
 
 			//get the exits as a group
 			getline(myfile, exits);
-			std::cout << "exits: " << exits << " " << std::endl;
 			
 			// get the group characters
 			std::stringstream ss(exits);
@@ -139,9 +121,6 @@ std::unordered_multimap<std::string, std::string> getMapElements(std::unordered_
 	};
 
 	myfile.close();
-
-	std::cout << " \n -----------Map Listings End--------------\n";
-
 	return mapped2;
 }
 //map graph of locations
@@ -200,42 +179,6 @@ int main() {
 
 	mapped3 = getMapIds(mapped3);
 
-	// only finds the name "caveHole"
-	//std::multimap<char, int>::iterator it, itlow, itup;
-	/*auto search = mapped2.find("CaveHole");
-	if (search != mapped2.end()) {
-		std::cout << search->first << search->second << "\n";*/
-		//mapCounter.insert(search->second);
-	//}
-
-
-	//for (auto it = mapped2.find("Staircase"); it != mapped2.end(); ++it) {
-	//	//std::cout << "\n";
-	//	std::cout << " first search about the map.= " << it->first << std::endl;
-	//	std::cout << " 2nd entry= " << it->second << std::endl;
-	//};
-
-
-	////print all entries by iteration
-	//for (auto it = mapped3.begin(); it != mapped3.end(); ++it) {
-	//	//std::cout << "\n";
-	//	std::cout << " first entry about the map.= " << it->first << std::endl;
-	//	/*if ( % 2 == 1) {
-	//		std::cout << " yippee!";
-	//	}*/
-	//	std::cout << " 2nd entry= " << it->second << std::endl;
-	//};
-
-	////cycle through all entries that begin with a Key'name'
-	////i.e. staircase -> value
-	//std::cout << "Entries with a:" << std::endl;
-	//auto range = mapped3.equal_range("Staircase");
-	//for_each(
-	//	range.first,
-	//	range.second,
-
-	//	[](defineArea::value_type& x) {std::cout << " " << x.second << std::endl; }
-	//);
 
 	//create a new area and give it's details
 	Area * areaState;
@@ -272,20 +215,13 @@ int main() {
 	// makes a pointer to Gamestate
 	GameState* gameState;
 
-	//makes a new gamestate mainMenuState
-	//gameState = new mainMenuState();
-
 	gameState = areaState;
-	// constructor?
-	//gameState = new Area(std::string name, std::string description, std::vector <std::string> mapExits);
 
 	// make a new state called newState with a pointer *- instantiate
 	StateManager* newState = new StateManager();
 
 	//changes the state places areaState into m_states vector
 	newState->changeState(gameState);
-	//tells gamestate to render itself
-	//gameState->render();
 	
 	std::cout << "begin";
 	//gets input
@@ -295,34 +231,10 @@ int main() {
 	// while q isn't chosen
 	while (mystring != "q") {
 
-		/*if (mychar == '1') {
-			gameState = new chooseAdventureState();
-			newState->changeState(gameState);
-		};
-		if (mychar == '2') {
-			gameState = new highScoreState();
-			newState->changeState(gameState);
-		};
-		if (mychar == '3') {
-			gameState = new helpState();
-			newState->changeState(gameState);
-		};
-		if (mychar == '4') {
-			gameState = new aboutState();
-			newState->changeState(gameState);
-		};
-	
-		if (mychar == '5') {
-			gameState = new mainMenuState();
-			newState->changeState(gameState);
-		};*/
-
-		// draws the gameState
-		//newState->render();
-		std::cout << "before \n";
+		
 		//render the current state
 		gameState->render();
-		std::cout << "between \n";
+
 		//go to this areas input member function
 		gameState->input(gameState, mapped2, mapped3);
 
