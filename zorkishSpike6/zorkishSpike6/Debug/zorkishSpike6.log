@@ -1,0 +1,14 @@
+﻿  main.cpp
+  StateManager.cpp
+  Parser.cpp
+  GameState.cpp
+  Area.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  mainMenuState.cpp
+  highScoreState.cpp
+  helpState.cpp
+  chooseAdventureState.cpp
+  aboutState.cpp
+  zorkishSpike6.vcxproj -> C:\Users\64306\Documents\Visual Studio 2017\Projects\zorkishSpike6\Debug\zorkishSpike6.exe
+  zorkishSpike6.vcxproj -> C:\Users\64306\Documents\Visual Studio 2017\Projects\zorkishSpike6\Debug\zorkishSpike6.pdb (Partial PDB)
