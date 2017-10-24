@@ -1,0 +1,13 @@
+﻿  main.cpp
+  Generating Code...
+  Compiling...
+  mainMenuState.cpp
+  highScoreState.cpp
+  helpState.cpp
+  chooseAdventureState.cpp
+  aboutState.cpp
+  StateManager.cpp
+  GameState.cpp
+  Generating Code...
+  zorkishSpike4.vcxproj -> C:\Users\64306\Documents\Visual Studio 2017\Projects\zorkishSpike4\Debug\zorkishSpike4.exe
+  zorkishSpike4.vcxproj -> C:\Users\64306\Documents\Visual Studio 2017\Projects\zorkishSpike4\Debug\zorkishSpike4.pdb (Partial PDB)
